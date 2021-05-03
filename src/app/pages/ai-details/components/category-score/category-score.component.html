@@ -1,0 +1,6 @@
+<div *ngIf="score; else noScore" class="score-container">
+    <div class="score-color" [ngClass]="{'score-bad': score < 70, 'score-ok' : score >= 70 && score <= 85, 'score-good' : score > 85  }">
+    </div>
+    {{score | number}}%
+</div>
+<ng-template #noScore>-</ng-template>

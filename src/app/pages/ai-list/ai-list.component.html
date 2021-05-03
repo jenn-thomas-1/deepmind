@@ -1,0 +1,23 @@
+<div class="header">
+    <div class="title">AI Agents</div>
+    <app-search (setSearchValue)="setSearchValue($event)"></app-search>
+</div>
+
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error">{{error}}</div>
+
+<ng-container *ngIf="!loading && !error">
+    <table *ngIf="agents && agents.length > 0; else noResults">
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Description</td>
+        </thead>
+        <tr *ngFor="let agent of agents" routerLink={{agent.id}}>
+            <td>{{agent.id}}</td>
+            <td>{{agent.name}}</td>
+            <td>{{agent.description}}</td>
+        </tr>
+    </table>
+    <ng-template #noResults>No agents found</ng-template>
+</ng-container>

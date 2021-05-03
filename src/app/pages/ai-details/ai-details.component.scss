@@ -1,0 +1,13 @@
+.back-arrow {
+    color: #555;
+    cursor: pointer;
+    &:hover {
+        color: #777;
+    }
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 18px;
+}

@@ -1,0 +1,11 @@
+<div *ngIf="loading">Loading comparison agents...</div>
+<ng-container *ngIf="agents && agents.length > 0">
+    <span class="compare-title">Compare to:</span> <select #dropDownInput (change)="changeValue(dropDownInput.value)">
+        <option>None</option>
+        <option *ngFor="let agent of agents" value={{agent.id}}>
+            {{agent.name}}
+        </option>
+    </select>
+</ng-container>
+
+<div *ngIf="error">{{error}}</div>

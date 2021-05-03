@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0px;
+  align-items: flex-end;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+thead {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+td {
+  border-top: 1px solid #dddddd;
+  padding: 8px;
+}

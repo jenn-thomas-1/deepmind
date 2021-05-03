@@ -1,0 +1,34 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error">{{error}}</div>
+
+<ng-container *ngIf="agent">
+    <div class="header">
+        <div class="title">{{agent.name}}</div>
+        <div class="back-arrow" routerLink=""> ⇦ Back </div>
+    </div>
+    <div class="description">{{agent.description}}</div>
+    <div class="header">
+        <div class="subtitle">Categories</div>
+        <app-agent-dropdown [currentAgentId]="agent.id" (setDropdownValue)="setComparisonValue($event)"></app-agent-dropdown>
+    </div>
+    <app-details-table [currentAgent]="agent" [comparisonAgent]="comparisonAgent"></app-details-table>
+    <div class="header">
+        <div class="subtitle">Tasks</div>
+    </div>
+    <table *ngIf="agent.tasks && agent.tasks.length > 0">
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Score</td>
+        </thead>
+        <tr *ngFor="let task of agent.tasks" routerLink={{agent.id}}>
+            <td>{{task.id}}</td>
+            <td>{{task.name}}</td>
+            <td>{{task.category}}</td>
+            <td>
+                <app-category-score [tasks]=[task]></app-category-score>
+            </td>
+        </tr>
+    </table>
+</ng-container>
